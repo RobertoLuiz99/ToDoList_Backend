@@ -4,7 +4,7 @@ document.getElementById("addTaskButton").addEventListener("click", function() {
 
     if (taskText) {
         addTask(taskText);
-        taskInput.value = ""; // Limpar o campo de entrada
+        taskInput.value = "";
     }
 });
 
@@ -14,20 +14,18 @@ function addTask(taskText) {
 
     li.textContent = taskText;
 
-    // Marcar como concluído ao clicar
     li.addEventListener("click", function() {
         li.classList.toggle("completed");
     });
 
-    // Remover tarefa
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remover";
-    removeButton.classList.add("remove"); // Adiciona a classe "remove" ao botão
+    removeButton.classList.add("remove");
     removeButton.addEventListener("click", function(event) {
-        event.stopPropagation(); // Evitar que o clique no botão marque a tarefa como concluída
+        event.stopPropagation();
         taskList.removeChild(li);
     });
 
-    li.appendChild(removeButton); // Adiciona o botão ao elemento de lista
-    taskList.appendChild(li); // Adiciona o elemento de lista à lista
+    li.appendChild(removeButton);
+    taskList.appendChild(li);
 }
